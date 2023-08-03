@@ -23,7 +23,7 @@ for file in json_files:
 df = pd.DataFrame(data, columns=["breakingCommit", "versionUpdateType", "failureCategory"])
 
 # Save the DataFrame to a CSV file
-csv_file_path = 'semver.csv'
+csv_file_path = 'RQs\\semver.csv'
 df.to_csv(csv_file_path, index=False)
 
 print("CSV file created successfully.")

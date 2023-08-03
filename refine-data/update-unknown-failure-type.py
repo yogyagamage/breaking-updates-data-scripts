@@ -1,15 +1,13 @@
 import os
 import json
 
-json_files_directory = 'benchmark'
+json_files_directory = 'C:\\Users\\Yogya\\Documents\\KTH\\Breaking Updates\\breaking-updates\\data\\benchmark'
 json_files = [file for file in os.listdir(json_files_directory) if file.endswith('.json')]
 
 log_files_directory = 'C://Users//Yogya//Documents//KTH//Breaking Updates//breaking-updates//reproductionLogs//successfulReproductionLogs'
 log_files = os.listdir(log_files_directory)
 
 patterns = [
-    "Failed to execute goal org.jenkins-ci.tools:maven-hpi-plugin",
-    "Failed to execute goal com.carrotsearch.randomizedtesting:junit4-maven-plugin",
     "There were test failures"
 ]
 
@@ -24,11 +22,9 @@ for file in json_files:
                     log_content = log_file.read()
                     for pattern in patterns:
                         if pattern in log_content:
-                            if pattern == patterns[0]:
-                                json_data['failureCategory'] = "MAVEN_HPI_PLUGIN_FAILURE"
-                            elif pattern in (patterns[1], patterns[2]):
+                            if pattern in (patterns[0]):
                                 json_data['failureCategory'] = "TEST_FAILURE"
 
     with open(os.path.join(json_files_directory, file), 'w') as json_file:
-        json.dump(json_data, json_file, indent=2)
+        json.dump(json_data, json_file, indent=2, separators=(',', ' : '))
         print(f"Updated {json_data['breakingCommit']}")

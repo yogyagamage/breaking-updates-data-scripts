@@ -1,0 +1,12 @@
+Line,Occurrences
+package does not exist,163
+cannot find symbol,484
+cannot access,53
+method does not override or implement a method from a supertype,15
+incompatible types: cannot be converted to,4
+static import only from classes and interfaces,3
+has private access in,2
+method cannot be applied to given types;,9
+incompatible types: is not a functional interface,1
+no suitable constructor found for,2
+is not abstract and does not override abstract method file,1

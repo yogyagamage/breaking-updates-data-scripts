@@ -2,7 +2,7 @@ import os
 import json
 import re
 
-json_files_directory = 'benchmark'
+json_files_directory = 'C:\\Users\\Yogya\\Documents\\KTH\\Breaking Updates\\breaking-updates\\data\\benchmark'
 json_files = [file for file in os.listdir(json_files_directory) if file.endswith('.json')]
 
 pattern = r"^\d+\.\d+\.\d+$"
@@ -36,5 +36,5 @@ for file in json_files:
                 json_data["updatedDependency"]["versionUpdateType"] = "other"
     if (isUpdated):
         with open(os.path.join(json_files_directory, file), 'w') as json_file:
-            json.dump(json_data, json_file, indent=2)
+            json.dump(json_data, json_file, indent=2, separators=(',', ' : '))
             print(f"Updated {json_data['breakingCommit']}") 
