@@ -52,7 +52,17 @@ def remove_patterns(file_path):
         r"method ([^\n]+) cannot be applied to given types",
         r"([^\n]+) has private access in ([^\n]+)",
         r"no suitable constructor found for ([^\n]+)",
-        r"([^\n]+) is not abstract and does not override abstract method file([^\n]+)"
+        r"([^\n]+) is not abstract and does not override abstract method ([^\n]+)",
+        r"constructor \S+ in class \S+ cannot be applied to given types",
+        r"no suitable method found for ([^\n]+)",
+        r"unreported exception ([^\n]+) must be caught or declared to be thrown",
+        r"incompatible types: bad return type in lambda expression",
+        r"cannot find symbol ([^\n]+)",
+        r"method does not override or implement a method from a supertype ([^\n]+)",
+        r"reference to \S+ is ambiguous",
+        r"static import only from classes and interfaces ([^\n]+)",
+        r"exception \S+ is never thrown in body of corresponding try statement",
+        r"Couldn't retrieve \S+ annotation"
     ]
     patterns_to_sub = [
         "",
@@ -63,7 +73,18 @@ def remove_patterns(file_path):
         "method cannot be applied to given types",
         "has private access in",
         "no suitable constructor found for",
-        "is not abstract and does not override abstract method file"
+        "is not abstract and does not override abstract method file",
+        "constructor in class cannot be applied to given types",
+        "no suitable method found for",
+        "unreported exception must be caught or declared to be thrown",
+        "incompatible types: bad return type in lambda expression",
+        "cannot find symbol",
+        "method does not override or implement a method from a supertype",
+        "reference to is ambiguous",
+        "static import only from classes and interfaces",
+        "exception is never thrown in body of corresponding try statement",
+        "Couldn't retrieve annotation"
+
     ]
 
     with open(file_path, 'r') as file:
@@ -76,7 +97,7 @@ def remove_patterns(file_path):
         file.write(content)
 
 def main():
-    log_folder = "C:\\Users\\Yogya\\Documents\\KTH\\Breaking Updates\\breaking-updates\\reproductionLogs\\successfulReproductionLogs"
+    log_folder = "C:\\Users\\Yogya\\Documents\\KTH\\BreakingUpdates\\breaking-updates\\reproductionLogs\\successfulReproductionLogs"
     output_file_path = "compilation-errors\compilation_errors_all.txt"
     output_file_path_lines = "compilation-errors\compilation_errors_extracted_lines.txt"
 
